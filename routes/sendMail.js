@@ -1,5 +1,5 @@
 const express = require('express')
-const sendInquiryRouter = express.Router()
+const sendMailRouter = express.Router()
 var nodemailer = require('nodemailer');
 
 var smtpConfig = {
@@ -18,11 +18,12 @@ var smtpConfig = {
 var transporter = nodemailer.createTransport(smtpConfig);
 
 
-sendInquiryRouter.post('/', (req,res, next) => {
+sendMailRouter.post('/', (req,res, next) => {
 
     var mailOptions = {
-        to: "sharmabhumi2000@gmail.com",
-        subject: `You have got a New Enquiry/Request from ${req.body.name}`,
+        to: "RECEIVER_EMAIL_ID",
+        subject: `MAIL_SUBJECT`,
+        //This text will be sent to the Receiver, I have created a template for Demo
         text: `
           From: 
           ${req.body.name}
@@ -56,4 +57,4 @@ sendInquiryRouter.post('/', (req,res, next) => {
     })
   });
 
-module.exports = sendInquiryRouter
+module.exports = sendMailRouter

@@ -6,7 +6,7 @@ const port = process.env.PORT
 
 app.use(morgan('dev'))
 app.use(express.json())
-app.use('/sendInquiry', require('./routes/sendInquiry'))
+app.use('/sendMail', require('./routes/sendMail'))
 
 app.listen(port, () => {
     console.log(`app is live on ${port}`)
